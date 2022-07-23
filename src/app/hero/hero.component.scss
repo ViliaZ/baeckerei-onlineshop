@@ -1,0 +1,15 @@
+@use "../../styles/mixins" as mix; //also imports _variables.scss
+
+:host{
+    @include mix.flex(space-between, center, column);
+    height: 320px;
+    width: 100%;
+    background-color: darkgrey;
+}
+
+.img-hero{
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+}
+
