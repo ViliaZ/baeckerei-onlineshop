@@ -4,13 +4,15 @@
     @include mix.flex(space-between, center);
     width: 100%;
     max-width: 1280px;
-    height: 84px; 
+    height: 104px; 
     margin: auto;
+    padding: 0 mix.$padding-main;
     background-color: white;
 }
 
 .logo{
     height: 44px;
+    cursor: pointer;
 }
 
 // SEARCHBAR
