@@ -1,16 +1,74 @@
 @use "../../styles/mixins" as mix; //also imports _variables.scss
 
-:host{
+:host {
     @include mix.flex(flex-start, center, column);
     flex: 1;
-    min-height: calc(100vh - 120px - 104px);  // footer always at least on page bottom
+    min-height: calc(100vh - 120px - 104px); // footer always at least on page bottom
     width: 100%;
 }
 
-.products{
+.categories {
+    position: relative;
+    @include mix.flex(flex-start, center, row, 22px);
+    width: 80%;
+    max-width: 1280px;
+    padding: 8px 54px;
+    margin: 22px 0px 100px 0px;
+
+    @media screen and (min-width: 1280px) {
+        width: 60%;
+    }
+
+    .category {
+        @include mix.flex(center, center, column, 6px);
+        font-weight: 200;
+        font-size: 14px;
+        cursor: pointer;
+        padding: 4px 8px;
+        border-radius: 6px;
+
+        &:hover {
+            background-color: rgba(128, 128, 128, 0.145);
+        }
+
+        img {
+            height: 42px;
+        }
+    }
+}
+
+button {
+    position: absolute;
+    bottom: 50%;
+    transform: translateY(50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    mat-icon {
+        @include mix.flex(center, center);
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+.btn-left {
+    left: 20px;
+}
+
+.btn-right {
+    right: 20px;
+}
+
+
+// product section (main section)
+.products {
     width: 100%;
     max-width: 1280px;
     flex: 1;
     margin: auto;
     padding: mix.$padding-main;
+    flex-wrap: wrap;
 }

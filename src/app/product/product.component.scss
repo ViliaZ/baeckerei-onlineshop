@@ -1,0 +1,74 @@
+@use "../../styles/mixins" as mix; //also imports _variables.scss
+
+:host {
+    position: relative;
+    @include mix.flex(flex-end, center, column);
+    width: 280px;
+    height: 220px;
+    padding: 8px;
+    padding-top: 100px;
+    // border: 0.04rem solid black;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        border-radius: 6px;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: -25%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        background-color: mix.$accent-color;
+        z-index: 0;
+    }
+}
+
+img {
+    position: absolute;
+    top: -30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+}
+
+.bottom{
+    @include mix.flex(space-between, center);
+    width: 100%;
+    position: relative;
+    padding: 8px;
+    margin-top: 26px;
+
+    &::after{
+        content:'';
+        position: absolute;
+        top: -6px; 
+        left: 0; 
+        width: 100%;
+        border-top: 0.04rem solid lightgrey; 
+    }
+}
+
+button{
+    @include mix.flex(flex-end, center, column);
+    background-color:mix.$accent-color;
+    border: 0.04rem solid lightgrey;
+    border-radius: 3px;
+    cursor: pointer;
+
+    &:hover{
+        opacity: 0.8;
+    }
+}
+
+// image on product info
+.product-info{
+    @include mix.flex(center, center, row, 4px);
+    background-color: red;
+
+    img{
+        width: 18px;
+    }
+    
+}
