@@ -1,6 +1,16 @@
+@use "../../styles/mixins" as mix; //also imports _variables.scss
+
 :host{
-    display: flex;
-    height: 30vh; 
-    width: 30vw;
-    background-color: red;
+    @include mix.flex(flex-start, center, column);
+    flex: 1;
+    min-height: calc(100vh - 120px - 104px);  // footer always at least on page bottom
+    width: 100%;
+}
+
+.products{
+    width: 100%;
+    max-width: 1280px;
+    flex: 1;
+    margin: auto;
+    padding: mix.$padding-main;
 }
