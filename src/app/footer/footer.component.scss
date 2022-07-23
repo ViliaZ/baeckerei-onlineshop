@@ -1,0 +1,40 @@
+@use "../../styles/mixins" as mix; //also imports _variables.scss
+
+:host {    
+    @include mix.flex(space-between, center);
+    height: 120px;
+    width: 100%;
+    background-color: #373333;
+    color: white;
+}
+
+// contains all content
+footer {
+    position: relative;
+    @include mix.flex(space-between, center);
+    margin: auto;
+    width: 100%;
+    max-width: 1280px;
+    padding: 0 mix.$padding-main;
+}
+
+img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 84px;
+    filter: invert(1);
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    margin-left: 12px;
+    cursor: pointer;
+
+    &:hover{
+        opacity: 0.8;
+    }
+
+}
