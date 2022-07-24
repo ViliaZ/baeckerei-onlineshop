@@ -1,10 +1,10 @@
 
 export class Product{
-
     uid: string;
     shopUID: string; // to which the product belongs >> shopUID
     name: string;
     description?: string; 
+    photoURL?: string;
     ingredients?: string[]; 
     isVegan?: boolean; 
     isGlutenfree?: boolean; 
@@ -18,6 +18,7 @@ export class Product{
         this.shopUID = obj ? obj.shopUID : '',
         this.name = obj ? obj.name : '',
         this.description = obj ? obj.description : '',
+        this.photoURL = obj ? obj.photoURL : '',
         this.ingredients = obj ? obj.ingredients : [],
         this.isVegan = obj ? obj.isVegan : false,
         this.isGlutenfree = obj ? obj.isGlutenfree : false,
@@ -32,6 +33,7 @@ export class Product{
             shopUID: this.shopUID,
             name: this.name,
             description: this.description,
+            photoURL: this.photoURL,
             ingredients: this.ingredients,
             isVegan: this.isVegan,
             isGlutenfree: this.isGlutenfree,
