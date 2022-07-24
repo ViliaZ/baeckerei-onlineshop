@@ -1,5 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { HelpersService } from '../helpers.service';
+import { HelpersService } from '../services/helpers.service';
 
 @Component({
   selector: 'app-cart',

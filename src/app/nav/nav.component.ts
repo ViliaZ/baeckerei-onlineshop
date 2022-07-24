@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HelpersService } from '../helpers.service';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import { ProductDialogComponent } from '../product-dialog/product-dialog.component';
+import { ProductComponent } from '../product/product.component';
+import { HelpersService } from '../services/helpers.service';
 
 @Component({
   selector: 'app-nav',
@@ -8,7 +11,9 @@ import { HelpersService } from '../helpers.service';
 })
 export class NavComponent implements OnInit {
 
-  constructor(private helpers: HelpersService) { }
+  constructor(
+    private helpers: HelpersService, 
+    public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -17,5 +22,10 @@ export class NavComponent implements OnInit {
     this.helpers.cartOpen = true;
   }
 
+  openProductDialog(): void {
+    this.dialog.open(ProductDialogComponent, {
+      width: '450px',
+    });
+  }
 
 }
