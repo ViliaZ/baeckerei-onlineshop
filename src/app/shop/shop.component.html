@@ -3,7 +3,7 @@
 <mat-drawer-container  class="cart-container" hasBackdrop="true">
 
     <!-- cart - drawer -->
-    <mat-drawer #drawer [opened]="true" mode="over" position="end">
+    <mat-drawer #drawer [opened]="helpers.cartOpen" mode="over" position="end">
         <app-cart></app-cart>
     </mat-drawer>
 

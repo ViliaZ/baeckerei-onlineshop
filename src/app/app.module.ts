@@ -16,6 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDialogModule } from '@angular/material/dialog';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
@@ -23,6 +24,7 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { ProductDialogComponent } from './product-dialog/product-dialog.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
     ProductComponent,
     CartComponent,
     LegalComponent,
-    ContactComponent
+    ContactComponent,
+    ProductDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +47,7 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
     MatSidenavModule, 
     MatFormFieldModule,
     MatSelectModule,
+    MatDialogModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
