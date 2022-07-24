@@ -1,34 +1,43 @@
 <button class="btn-close" (click)="closeCart()">
-close
+    close
 </button>
 <h3>Warenkorb</h3>
 
 <!-- Products in Cart -->
 
-    <div class="product">
-        <div class="amount">1</div>
-        <div class="productinfo">
-            <div class="product-top">
-                <span>Title des Produktes</span>
-                <span>4,00 €</span>
-            </div>
-            <div class="product-bottom">
-                <span class="comment">Anmerkung hinzufügen</span>
-                <div class="buttons">
-                    <button>
-                        <mat-icon title="minus">
-                            remove
-                        </mat-icon>
-                    </button>
-                    <button>
-                        <mat-icon title="plus">
-                            add
-                        </mat-icon>
-                    </button>
-                </div>
+<div class="product">
+    <div class="amount">1</div>
+    <div class="productinfo">
+        <div class="product-top">
+            <span>Title des Produktes</span>
+            <span>4,00 €</span>
+        </div>
+        <div class="product-bottom">
+            <span (click)="toggleCommentBox()" class="comment">Anmerkung hinzufügen</span>
+            <div class="buttons">
+                <button>
+                    <mat-icon title="minus">
+                        remove
+                    </mat-icon>
+                </button>
+                <button>
+                    <mat-icon title="plus">
+                        add
+                    </mat-icon>
+                </button>
             </div>
         </div>
+
+        <div class="commentContainer" *ngIf="commentOpen">
+            <textarea placeholder="Dein Kommentar" cols="50"></textarea>
+            <div class="buttons-comment">
+                <button class="btn-comment" (click)="toggleCommentBox()">Abbrechen</button>
+                <button class="btn-comment" (click)="saveComment()">Speichern</button>
+            </div>
+        </div>
+
     </div>
+</div>
 
 
 <!-- Delivery Costs -->

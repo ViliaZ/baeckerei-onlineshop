@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { Product } from 'src/models/product.class';
 import { HelpersService } from '../services/helpers.service';
 
 @Component({
@@ -8,6 +9,8 @@ import { HelpersService } from '../services/helpers.service';
 })
 export class CartComponent implements OnInit {
 
+  public commentOpen: boolean = false;
+
   constructor(private helpers: HelpersService) { }
 
   ngOnInit(): void {
@@ -15,6 +18,15 @@ export class CartComponent implements OnInit {
 
   closeCart(){
     this.helpers.cartOpen = false;
+  }
+
+  saveComment(){
+    // Add Parameter "cartProduct: Product"
+    // add comment to order referring to the product
+  }
+
+  toggleCommentBox(){
+    this.commentOpen = !this.commentOpen;
   }
 
 

@@ -54,6 +54,20 @@ h3 {
     }
 }
 
+.commentContainer{
+    width: 100%;
+}
+
+textarea{
+    width: 100%;
+    resize: none;
+    padding: 6px;
+    border: 0.04rem solid grey;
+    font-family: inherit;
+    font-weight: 200;
+    font-size: 12px;
+}
+
 .deliveryinfo {
     width: 85%;
     margin: auto;
@@ -85,7 +99,7 @@ button {
     cursor: pointer;
 
     &:hover {
-        opacity: 0.8;
+        opacity: 0.7;
     }
 }
 
@@ -113,5 +127,19 @@ button {
     text-decoration: underline;
     font-size: 14px;
     font-weight: 200;
+}
+
+.buttons-comment{
+    width: 100%;
+    @include mix.flex(flex-end, center);
+
+    .btn-comment{
+        padding: 4px 0px 4px 12px;
+        background-color: transparent;
+        font-size: 14px;
+        font-weight: 200;
+        border: none;
+        cursor: pointer;
+    }
 }
 
