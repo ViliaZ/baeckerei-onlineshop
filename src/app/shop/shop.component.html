@@ -1,21 +1,55 @@
 <app-hero></app-hero>
 
-<!-- slider categories -->
-<div class="categories">
-    <button class="btn-left">
-        <mat-icon aria-hidden="false" aria-label="Example home icon">navigate_before</mat-icon>
-    </button>
+<mat-drawer-container  class="cart-container" hasBackdrop="true">
 
-    <div class="category">
-        <img src="./assets/img/breadbasket.png" alt="breadbasket" class="img-category">
-        <span>Brotkörbe</span>
-    </div>
+    <!-- cart - drawer -->
+    <mat-drawer  #drawer mode="over" position="end">
+        <app-cart></app-cart>
+    </mat-drawer>
 
-    <button class="btn-right">
-        <mat-icon aria-hidden="false" aria-label="Example home icon">keyboard_arrow_right</mat-icon>
-    </button>
-</div>
+    <mat-drawer-content >
+        <!-- slider categories -->
+        <div class="categories">
+            <button class="btn-left">
+                <mat-icon aria-hidden="false" aria-label="Example home icon">navigate_before</mat-icon>
+            </button>
 
-<div class="products">
-    <app-product></app-product>
-</div>
+            <div class="category">
+                <img src="./assets/img/breadbasket.png" alt="breadbasket" class="img-category">
+                <span>Brotkörbe</span>
+            </div>
+
+            <div class="category">
+                <img src="./assets/img/breadbasket.png" alt="breadbasket" class="img-category">
+                <span>Brotkörbe</span>
+            </div>
+
+            <div class="category">
+                <img src="./assets/img/breadbasket.png" alt="breadbasket" class="img-category">
+                <span>Brotkörbe</span>
+            </div>
+
+            <div class="category">
+                <img src="./assets/img/breadbasket.png" alt="breadbasket" class="img-category">
+                <span>Brotkörbe</span>
+            </div>
+
+            <button class="btn-right">
+                <mat-icon aria-hidden="false" aria-label="Example home icon">keyboard_arrow_right</mat-icon>
+            </button>
+        </div>
+
+        <!-- Main shop section with products -->
+        <div class="products">
+            <app-product></app-product>
+            <app-product></app-product>
+            <app-product></app-product>
+            <app-product></app-product>
+            <app-product></app-product>
+            <app-product></app-product>
+        </div>
+
+        <!-- toggle Button for cart -->
+        <button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button>
+    </mat-drawer-content>
+</mat-drawer-container>

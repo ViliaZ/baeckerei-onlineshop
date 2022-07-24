@@ -7,17 +7,40 @@
     width: 100%;
 }
 
+// MATERIAL DRAWER
+// change name!!  //////
+.cart-container {
+    width: 100%;
+    height: 100%;
+}
+
+mat-drawer-content {
+    // @include mix.flex(flex-start, center);
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+// prevent from scrolling the navbar
+.mat-drawer:not(.mat-drawer-side) {
+    position: fixed;
+}
+
+.mat-drawer-backdrop {
+    position: fixed !important;
+}
+
+/////////////////
+
 .categories {
     position: relative;
-    @include mix.flex(flex-start, center, row, 22px);
-    width: 80%;
-    max-width: 1280px;
-    padding: 8px 54px;
-    margin: 22px 0px 100px 0px;
+    @include mix.flex(flex-start, center, row, 32px);
+    width: 60%;
+    max-width: 800px;
+    padding: 8px 64px;
+    margin: auto;
 
-    @media screen and (min-width: 1280px) {
-        width: 60%;
-    }
 
     .category {
         @include mix.flex(center, center, column, 6px);
@@ -62,13 +85,13 @@ button {
     right: 20px;
 }
 
-
 // product section (main section)
 .products {
+    @include mix.flex(space-evenly, center, row, 32px);
     width: 100%;
     max-width: 1280px;
     flex: 1;
     margin: auto;
-    padding: mix.$padding-main;
+    padding: 20px mix.$padding-main 80px;
     flex-wrap: wrap;
 }

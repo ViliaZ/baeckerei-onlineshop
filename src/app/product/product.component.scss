@@ -6,10 +6,9 @@
     width: 280px;
     height: 220px;
     padding: 8px;
-    padding-top: 100px;
-    // border: 0.04rem solid black;
+    margin-top: 100px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-        border-radius: 6px;
+    border-radius: 6px;
 
     &::before {
         content: "";
@@ -33,42 +32,41 @@ img {
     width: 220px;
 }
 
-.bottom{
+.bottom {
     @include mix.flex(space-between, center);
     width: 100%;
     position: relative;
     padding: 8px;
     margin-top: 26px;
 
-    &::after{
-        content:'';
+    &::after {
+        content: "";
         position: absolute;
-        top: -6px; 
-        left: 0; 
+        top: -6px;
+        left: 0;
         width: 100%;
-        border-top: 0.04rem solid lightgrey; 
+        border-top: 0.04rem solid lightgrey;
     }
 }
 
-button{
+button {
     @include mix.flex(flex-end, center, column);
-    background-color:mix.$accent-color;
+    background-color: mix.$accent-color;
     border: 0.04rem solid lightgrey;
     border-radius: 3px;
     cursor: pointer;
 
-    &:hover{
+    &:hover {
         opacity: 0.8;
     }
 }
 
 // image on product info
-.product-info{
+.product-info {
     @include mix.flex(center, center, row, 4px);
     background-color: red;
 
-    img{
+    img {
         width: 18px;
     }
-    
 }
