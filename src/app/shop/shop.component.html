@@ -41,12 +41,7 @@
 
         <!-- Main shop section with products -->
         <div class="products">
-            <app-product></app-product>
-            <app-product></app-product>
-            <app-product></app-product>
-            <app-product></app-product>
-            <app-product></app-product>
-            <app-product></app-product>
+            <app-product *ngFor="let product of fs.products$ | async " [product]="product"></app-product>
         </div>
 
         <!-- toggle Button for cart -->

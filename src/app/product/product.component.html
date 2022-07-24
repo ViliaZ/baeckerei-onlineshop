@@ -1,11 +1,11 @@
-<img src="./assets/img/products/bread.png" alt="product">
-<!-- <h3 >{{ user.usertest }}</h3> -->
-<h4>Weizen & Emmer</h4>
+<img src="{{ product?.photoURL }}" alt="product">
+<h3>{{ product?.name }}</h3>
+<h4>{{ product?.description }}</h4>
 <div class="bottom">
-    <span>500g | 5,99 Euro</span>
+    <span>{{ product?.amount }} | {{ (product?.price | number : '1.2-2' )}} €</span>
 
     <!-- TODO -->
-    <!-- <div class="product-info"> 
+    <!-- <div class="product-info">  
         <img  src="./assets/img/glutenfree.png" alt="glutenfree">
         <img  src="./assets/img/vegan.png" alt="vegan">
     </div> -->

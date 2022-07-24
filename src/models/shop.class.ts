@@ -2,7 +2,7 @@ export class Shop {
   shopUid: string;
   shopname: string;
   description?: string;
-  admins?: string[]; // refers to User UIDs with admin rights for each shop
+  admins?: string[]; // ONLY admins can edit shops and products - refers to User UIDs of collection "users"
   productCategories?: string[];
   products?: any[];
 

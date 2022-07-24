@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Firestore } from '@angular/fire/firestore';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-
+import { Product } from 'src/models/product.class';
+import { FirebaseService } from '../services/firebase.service';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -10,10 +9,11 @@ import { Observable } from 'rxjs';
 })
 export class ProductComponent implements OnInit {
 
+  @Input() product: Product | undefined;
 
-
-  constructor(firestore: AngularFirestore) {
+  constructor(public fs: FirebaseService) { 
   }
+  
 
   ngOnInit(): void {
   }
