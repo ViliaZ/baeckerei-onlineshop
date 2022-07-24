@@ -14,25 +14,10 @@
                 <mat-icon aria-hidden="false" aria-label="Example home icon">navigate_before</mat-icon>
             </button>
 
-            <div class="category">
-                <img src="./assets/img/breadbasket.png" alt="breadbasket" class="img-category">
-                <span>Brotkörbe</span>
-            </div>
-
-            <div class="category">
-                <img src="./assets/img/breadbasket.png" alt="breadbasket" class="img-category">
-                <span>Brotkörbe</span>
-            </div>
-
-            <div class="category">
-                <img src="./assets/img/breadbasket.png" alt="breadbasket" class="img-category">
-                <span>Brotkörbe</span>
-            </div>
-
-            <div class="category">
-                <img src="./assets/img/breadbasket.png" alt="breadbasket" class="img-category">
-                <span>Brotkörbe</span>
-            </div>
+            <div *ngFor="let category of currentShop.productCategories" class="category">
+                <img src="./assets/img/categories/{{ category }}.png" alt="Bundles" class="img-category">
+                <span>{{ category }}</span>
+            </div> 
 
             <button class="btn-right">
                 <mat-icon aria-hidden="false" aria-label="Example home icon">keyboard_arrow_right</mat-icon>
