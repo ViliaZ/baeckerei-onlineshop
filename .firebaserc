@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "backshop-d15a0": {
+      "hosting": {
+        "brotkorb": [
+          "backshop-d15a0"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "backshop-d15a0"
+  }
+}
