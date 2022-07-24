@@ -1,6 +1,6 @@
 <app-hero [currentShop]="currentShop"></app-hero>
 
-<mat-drawer-container  class="cart-container" hasBackdrop="true">
+<mat-drawer-container class="cart-container" hasBackdrop="true">
 
     <!-- cart - drawer -->
     <mat-drawer #drawer [opened]="helpers.cartOpen" mode="over" position="end">
@@ -10,17 +10,20 @@
     <mat-drawer-content>
         <!-- slider categories -->
         <div class="categories">
-            <button class="btn-left">
-                <mat-icon aria-hidden="false" aria-label="Example home icon">navigate_before</mat-icon>
+            <button (click)="scroll('left')" class="btn-left">
+                <mat-icon>navigate_before</mat-icon>
             </button>
 
-            <div *ngFor="let category of currentShop.productCategories" class="category">
-                <img src="./assets/img/categories/{{ category }}.png" alt="Bundles" class="img-category">
-                <span>{{ category }}</span>
-            </div> 
 
-            <button class="btn-right">
-                <mat-icon aria-hidden="false" aria-label="Example home icon">keyboard_arrow_right</mat-icon>
+            <div class="categories-scroll" #scrollcontainer>
+                <div *ngFor="let category of currentShop.productCategories" class="category">
+                        <img src="./assets/img/categories/{{ category }}.png" alt="Bundles" class="img-category">
+                        <span>{{ category }}</span>
+                </div>
+            </div>
+
+            <button (click)="scroll('right')" class="btn-right">
+                <mat-icon>keyboard_arrow_right</mat-icon>
             </button>
         </div>
 

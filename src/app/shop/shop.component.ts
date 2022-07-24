@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Shop } from 'src/models/shop.class';
 import { FirebaseService } from '../services/firebase.service';
 import { HelpersService } from '../services/helpers.service';
@@ -15,7 +15,7 @@ export class ShopComponent implements OnInit {
 
   // data from firebase
   public currentShop!: Shop;
-
+  @ViewChild('scrollcontainer') scrollcontainer!: ElementRef;
   constructor(public helpers: HelpersService, public fs: FirebaseService) {}
 
   ngOnInit(): void {
@@ -29,9 +29,19 @@ export class ShopComponent implements OnInit {
   }
 
   getCurrentShopInfo() {
-    this.fs.getCurrentShopInfo(this.currentShopname)
-      .subscribe((shop: any) => {
-        this.currentShop = new Shop(shop);
+    this.fs.getCurrentShopInfo(this.currentShopname).subscribe((shop: any) => {
+      this.currentShop = new Shop(shop);
     });
+  }
+
+  scroll(direction: string) {
+    switch (direction) {
+      case 'right':
+        this.scrollcontainer.nativeElement.scrollLeft += 50;
+        break;
+      case 'left':
+        this.scrollcontainer.nativeElement.scrollLeft -= 50;
+        break;
+    }
   }
 }

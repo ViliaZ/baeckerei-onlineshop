@@ -35,12 +35,15 @@ mat-drawer-content {
 
 .categories {
     position: relative;
-    @include mix.flex(flex-start, center, row, 32px);
     width: 60%;
     max-width: 800px;
     padding: 8px 64px;
     margin: auto;
 
+    .categories-scroll{
+        @include mix.flex(flex-start, center, row, 32px);
+        overflow-x: auto;
+    }
 
     .category {
         @include mix.flex(center, center, column, 6px);
