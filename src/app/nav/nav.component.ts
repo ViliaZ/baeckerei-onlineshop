@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HelpersService } from '../helpers.service';
 
 @Component({
   selector: 'app-nav',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+  constructor(private helpers: HelpersService) { }
 
   ngOnInit(): void {
   }
+
+  openCart(){
+    this.helpers.cartOpen = true;
+  }
+
 
 }

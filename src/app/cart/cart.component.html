@@ -1,2 +1,57 @@
+<button class="btn-close" (click)="closeCart()">
+close
+</button>
 <h3>Warenkorb</h3>
-<div></div>
+
+<!-- Products in Cart -->
+
+    <div class="product">
+        <div class="amount">1</div>
+        <div class="productinfo">
+            <div class="product-top">
+                <span>Title des Produktes</span>
+                <span>4,00 €</span>
+            </div>
+            <div class="product-bottom">
+                <span class="comment">Anmerkung hinzufügen</span>
+                <div class="buttons">
+                    <button>
+                        <mat-icon title="minus">
+                            remove
+                        </mat-icon>
+                    </button>
+                    <button>
+                        <mat-icon title="plus">
+                            add
+                        </mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!-- Delivery Costs -->
+<span class="deliveryinfo">
+    Wir liefern ab einem Mindestbestellwert von 6,00 € (exkl. Lieferkosten).
+    Ab 10,00 Euro erfolgt der Versand kostenfrei.
+</span>
+
+<!-- Calculations -->
+<div class="calculations">
+    <div class="calculation">
+        <span>Zwischensumme</span>
+        <span>2,00 €</span>
+    </div>
+    <div class="calculation">
+        <span>Lieferkosten</span>
+        <span>2,00 €</span>
+    </div>
+    <div class="calculation finalSum">
+        <span>Gesamt</span>
+        <span>2,00 €</span>
+    </div>
+</div>
+
+<button class="btn-order">Bezahlen</button>
+<button class="btn-cancel">Abbrechen</button>

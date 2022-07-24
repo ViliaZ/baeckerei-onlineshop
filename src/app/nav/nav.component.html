@@ -2,7 +2,8 @@
     src="./assets/img/logo-black.png" 
     routerLink="/"
     alt="brotkorb-logo" 
-    class="logo">
+    class="logo"
+    title="home">
 <div class="search">
     <input placeholder="Lieblingsbäcker finden" type="text">
     <button>
@@ -10,12 +11,19 @@
     </button>
 </div>
 <div class="right-container">
-    <span>Versandkostenfrei ab 10 Euro</span>
-    <mat-icon class="icon-cart" aria-label="warenkorb">
+    <span>Versandkostenfrei ab 10,00 Euro</span>
+    <mat-icon class="icon-nav" aria-label="account" title="login">
+        account_circle
+    </mat-icon>
+    <mat-icon 
+        class="icon-nav" 
+        title="warenkorb"
+        (click)="openCart()">
         shopping_basket
         <div class="cart-count">
             3
         </div>
     </mat-icon>
-
 </div>
+
+<!-- (click)="drawer.toggle()" -->

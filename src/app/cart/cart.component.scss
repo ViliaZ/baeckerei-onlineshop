@@ -1,14 +1,117 @@
 @use "../../styles/mixins" as mix; //also imports _variables.scss
 
-:host{
-    @include mix.flex(flex-start, center, column);
-    width: 380px;
+:host {
+    @include mix.flex(flex-start, center, column, 12px);
+    width: 400px;
     min-width: 280px;
     max-height: 100vh;
-    padding: 20px 12px;
 }
 
-h3{
-    margin-top: 32px;
+h3 {
+    width: 100%;
+    margin-top: 52px;
     text-align: center;
+    padding-bottom: 32px;
+    border-bottom: 0.04rem lightgrey solid;
 }
+
+.product {
+    @include mix.flex(flex-start, flex-start, row, 6px);
+    width: 90%;
+    padding: 12px 0;
+    margin-bottom: 20px;
+    border-bottom: 0.04rem lightgrey solid;
+
+    .productinfo {
+        @include mix.flex(flex-start, center, column, 12px);
+        width: 100%;
+    }
+
+    .product-top {
+        @include mix.flex(space-between, center, row);
+        width: 100%;
+    }
+
+    .product-bottom {
+        @include mix.flex(space-between, center, row);
+        width: 100%;
+    }
+    .buttons {
+        @include mix.flex(flex-start, center, row, 6px);
+    }
+
+    .comment{
+        text-decoration: underline;
+        font-style: italic;
+        font-weight: 200;
+        font-size: 12px;
+        color: darkgrey;
+        cursor: pointer;
+
+        &:hover{
+            opacity: 0.8;
+        }
+    }
+}
+
+.deliveryinfo {
+    width: 85%;
+    margin: auto;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 200;
+}
+
+.calculations {
+    @include mix.flex(flex-start, center, column, 8px);
+    width: 100%;
+    margin: 12px 0;
+
+    .calculation {
+        @include mix.flex(space-between, center);
+        width: 90%;
+        margin: auto;
+    }
+
+    .finalSum {
+        font-weight: bold;
+    }
+}
+
+button {
+    @include mix.flex(center, center);
+    border-radius: 4px;
+    border: 0.04rem solid grey;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.btn-order {
+    width: 90%;
+    padding: 6px;
+    margin: auto;
+    font-size: 16px;
+}
+
+.btn-cancel {
+    width: 90%;
+    padding: 6px;
+    margin: auto;
+    font-size: 16px;
+    background-color: transparent;
+}
+
+.btn-close {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    border: none;
+    background-color: transparent;
+    text-decoration: underline;
+    font-size: 14px;
+    font-weight: 200;
+}
+

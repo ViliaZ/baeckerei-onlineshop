@@ -53,10 +53,15 @@
 
 .right-container{
     @include mix.flex(flex-end, center,row, 22px);
+
+    span{
+        font-weight: 200;
+        font-size: 14px;
+    }
 }
 
 // CART 
-.icon-cart{
+.icon-nav{
     @include mix.flex(center, center);
     height: 38px;
     font-size: 30px;

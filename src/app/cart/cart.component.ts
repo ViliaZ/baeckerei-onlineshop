@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { HelpersService } from '../helpers.service';
 
 @Component({
   selector: 'app-cart',
@@ -7,9 +8,13 @@ import { Component, HostListener, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  constructor() { }
+  constructor(private helpers: HelpersService) { }
 
   ngOnInit(): void {
+  }
+
+  closeCart(){
+    this.helpers.cartOpen = false;
   }
 
 
