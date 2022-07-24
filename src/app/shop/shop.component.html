@@ -10,13 +10,13 @@
     <mat-drawer-content>
         <!-- slider categories -->
         <div class="categories">
-            <button (click)="scroll('left')" class="btn-left">
+            <button (click)="scroll('leftf')" class="btn-left">
                 <mat-icon>navigate_before</mat-icon>
             </button>
 
 
             <div class="categories-scroll" #scrollcontainer>
-                <div *ngFor="let category of currentShop.productCategories" class="category">
+                <div *ngFor="let category of currentShop?.productCategories" class="category">
                         <img src="./assets/img/categories/{{ category }}.png" alt="Bundles" class="img-category">
                         <span>{{ category }}</span>
                 </div>
