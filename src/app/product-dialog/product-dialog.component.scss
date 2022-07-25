@@ -29,7 +29,7 @@
 
 button {
     @include mix.flex(center, center);
-    padding: 6px 10px;
+    padding: 8px 16px;
     border: 0.04rem solid lightgrey;
     border-radius: 3px;
     cursor: pointer;
@@ -46,4 +46,8 @@ button {
 ul {
     list-style-type: none;
     margin-top: 4px;
+  }
+
+  mat-form-field{
+    width: 100%;
   }

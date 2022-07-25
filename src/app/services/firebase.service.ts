@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
+import { Product } from 'src/models/product.class';
 import { Shop } from 'src/models/shop.class';
 
 @Injectable({
@@ -29,5 +30,10 @@ export class FirebaseService {
   }
 
   // TODO
-  addProductToShop(shopUid: string, data: any) {}
+  addProductToShop(product: Product, shopUID: string): void {
+    this.fs.collection('products').add({
+      ...product,
+      shopUID,
+    });
+  }
 }

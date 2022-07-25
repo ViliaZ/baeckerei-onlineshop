@@ -4,6 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Product } from 'src/models/product.class';
 import { firstValueFrom } from 'rxjs';
 import { FirebaseService } from '../services/firebase.service';
+import { Shop } from 'src/models/shop.class';
 
 @Component({
   selector: 'app-product-dialog',
@@ -14,6 +15,8 @@ export class ProductDialogComponent implements OnInit {
   public newProduct!: Product;
   public existingProducts!: Product[];
   public noBundleProducts!: Product[]; // all Products which are no bundle ("Einzelprodukte")
+  private currentShopInfos!: Shop;
+  public shopCategories!: string[];
 
   constructor(
     public dialogRef: MatDialogRef<ProductDialogComponent>,
@@ -24,6 +27,7 @@ export class ProductDialogComponent implements OnInit {
   async ngOnInit() {
     this.newProduct = new Product();
     await this.getExistingProducts();
+    await this.getShopCategories();
   }
 
   async getExistingProducts(): Promise<any> {
@@ -33,9 +37,16 @@ export class ProductDialogComponent implements OnInit {
     );
   }
 
+  async getShopCategories(): Promise<any> {
+    this.currentShopInfos = await firstValueFrom(this.fs.currentShopInfos$) as Shop;
+    this.shopCategories = this.currentShopInfos.productCategories as string[];
+  }
+
   saveNewProduct() {
-    console.log('neuseProduct', this.newProduct);
+    this.newProduct.shopUID = this.currentShopInfos.shopUid;
+    this.fs.addProductToShop(this.newProduct, this.currentShopInfos.shopUid);
     this.openSnackbar('Produkt erfolgreich hinzugefügt.', 'OK');
+    console.log('neuseProduct', this.newProduct);
   }
 
   openSnackbar(message: string, actionMessage: string) {
