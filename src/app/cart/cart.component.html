@@ -4,13 +4,12 @@
 <h3>Warenkorb</h3>
 
 <!-- Products in Cart -->
-
-<div class="product">
-    <div class="amount">1</div>
+<div *ngFor="let cartItem of cartService.cart.cartItems" class="product">
+    <div class="amount">{{ cartItem.amount }}</div>
     <div class="productinfo">
         <div class="product-top">
-            <span>Title des Produktes</span>
-            <span>4,00 €</span>
+            <span>{{ cartItem.product.name }}</span>
+            <span>{{ (cartItem.product.price | number : '1.2-2' )}} €</span>
         </div>
         <div class="product-bottom">
             <span (click)="toggleCommentBox()" class="comment">Anmerkung hinzufügen</span>
@@ -27,12 +26,15 @@
                 </button>
             </div>
         </div>
+        <div *ngIf="cartItem.comment" class="comments-final">
+            <span>{{ cartItem?.comment || ''}}</span>
+        </div>
 
         <div class="commentContainer" *ngIf="commentOpen">
             <textarea placeholder="Dein Kommentar" cols="50"></textarea>
             <div class="buttons-comment">
                 <button class="btn-comment" (click)="toggleCommentBox()">Abbrechen</button>
-                <button class="btn-comment" (click)="saveComment()">Speichern</button>
+                <button class="btn-comment" (click)="saveCommentToProduct()">Speichern</button>
             </div>
         </div>
 

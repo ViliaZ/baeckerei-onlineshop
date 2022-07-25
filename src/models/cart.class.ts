@@ -1,6 +1,6 @@
 import { Product } from './product.class';
 
-export interface cartProduct{
+export interface CartProduct{
     product: Product;
     amount: number;
     comment?: string;
@@ -10,7 +10,7 @@ export class Cart {
   deliveryCosts: number;
   minOrder: number;
   achievedMinOrder: boolean;
-  cartItems: cartProduct[];
+  cartItems: CartProduct[];
   subTotalPrice: number;
   totalPrice: number;
   voucher: string;
