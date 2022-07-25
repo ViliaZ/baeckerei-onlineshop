@@ -27,7 +27,6 @@ export class ProductComponent implements OnInit {
     } else {
       this.cartService.addNewProductToCart(this.product);
     }
-    this.cartService.cart.calculateSubTotalPrice();
     this.toggleCart();
   }
 

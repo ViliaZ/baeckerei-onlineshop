@@ -26,16 +26,14 @@ export class Cart {
   calculateSubTotalPrice() {
     this.subTotalPrice = 0;
     this.cartItems.forEach((item) => {
-      console.log('item', item);
-      
       this.subTotalPrice += item.product.price * item.quantity;
     });
-    console.log('subtotalPrice', this.subTotalPrice);
+    return this.subTotalPrice;
   }
 
   calculateTotalPrice() {
-    this.calculateSubTotalPrice();
-    this.totalPrice = this.subTotalPrice + this.deliveryCosts;
+    let subtotalPrice = this.calculateSubTotalPrice();
+    this.totalPrice = subtotalPrice + this.deliveryCosts;
     console.log('totalPrice', this.totalPrice);
   }
 

@@ -29,11 +29,13 @@ export class CartService {
     };
     // Add product to cart
     this.cart.cartItems.push(newCartProduct);
+    this.cart.calculateTotalPrice();
     console.log('new Cart und product', this.cart);
   }
 
   deleteProductFromCart(cartProductIndex: number) {
     this.cart.cartItems.splice(cartProductIndex, 1);
+    this.cart.calculateTotalPrice();
   }
 
   editQuantityOfCartProduct(cartProductIndex: any, action: string = 'increase') {
@@ -42,6 +44,7 @@ export class CartService {
       this.checkForDeleteProduct(currentCartItem, cartProductIndex);
     }
     action == 'increase' ? currentCartItem.quantity++ : currentCartItem.quantity--; 
+    this.cart.calculateTotalPrice();
   }
 
   checkForDeleteProduct(currentCartItem: any, cartProductIndex: number) {
