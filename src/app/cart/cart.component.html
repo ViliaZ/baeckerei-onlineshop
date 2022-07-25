@@ -17,7 +17,7 @@
             </div>
             <div class="product-bottom">
                 <span (click)="toggleCommentBox()" class="comment">Anmerkung hinzufügen</span>
-              
+
                 <!-- buttons PLUS + MINUS -->
                 <div class="buttons">
                     <button (click)="handleDecreaseProductQuantity(i)">
@@ -57,7 +57,10 @@
         </div>
         <div class="calculation">
             <span>Lieferkosten</span>
-            <span>{{ cart.deliveryCosts | number : '1.2-2' }} €</span>
+            <span *ngIf="cart.calcDeliveryCosts() == 0; else deliveryCosts">{{ 0 }} €</span>
+            <ng-template #deliveryCosts>
+                <span >{{ cart.deliveryCosts | number : '1.2-2' }} €</span>
+            </ng-template>
         </div>
         <div class="calculation finalSum">
             <span>Gesamt</span>

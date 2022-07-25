@@ -32,9 +32,15 @@ export class Cart {
   }
 
   calculateTotalPrice() {
-    let subtotalPrice = this.calculateSubTotalPrice();
-    this.totalPrice = subtotalPrice + this.deliveryCosts;
-    console.log('totalPrice', this.totalPrice);
+    this.calculateSubTotalPrice();
+    let finalDeliveryCosts: number = this.calcDeliveryCosts();
+    console.log('finalDeliveryCosts', finalDeliveryCosts);
+    
+    this.totalPrice = this.subTotalPrice + finalDeliveryCosts;
+  }
+
+  calcDeliveryCosts(){
+    return (this.subTotalPrice >= this.minOrder) ? 0 : this.deliveryCosts;
   }
 
   toJson() {
