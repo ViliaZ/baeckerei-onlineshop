@@ -21,7 +21,7 @@
     <mat-icon 
         class="icon-nav" 
         title="warenkorb"
-        (click)="openCart()">
+        (click)="toggleCart()">
         shopping_basket
         <div class="cart-count">
             {{ this.cartService.cart.cartItems.length }}

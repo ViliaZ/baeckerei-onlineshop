@@ -1,7 +1,7 @@
 <img src="{{ product?.photoURL }}" alt="product">
 <h3>{{ product?.name }}</h3>
 <h4>{{ product?.description }}</h4>
-<div class="bottom">
+<div (click)="handleProductAdding()" class="bottom">
     <span>{{ product?.amount }} | {{ (product?.price | number : '1.2-2' )}} €</span>
 
     <!-- TODO -->
@@ -10,7 +10,7 @@
         <img  src="./assets/img/vegan.png" alt="vegan">
     </div> -->
 
-    <button (click)="handleProductAdding()">
+    <button>
         <mat-icon aria-hidden="false">add</mat-icon>
     </button>
 </div>

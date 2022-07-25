@@ -37,10 +37,10 @@ export class ShopComponent implements OnInit {
   scroll(direction: string) {
     switch (direction) {
       case 'right':
-        this.scrollcontainer.nativeElement.scrollLeft += 50;
+        this.scrollcontainer.nativeElement.scrollLeft += 80;
         break;
       case 'left':
-        this.scrollcontainer.nativeElement.scrollLeft -= 50;
+        this.scrollcontainer.nativeElement.scrollLeft -= 80;
         break;
     }
   }

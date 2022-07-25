@@ -38,11 +38,11 @@ mat-drawer-content {
     width: 60%;
     max-width: 800px;
     padding: 8px 64px;
-    margin: auto;
+    margin: 32px auto;
 
-    .categories-scroll{
+    .scrollcontainer{
         @include mix.flex(flex-start, center, row, 32px);
-        overflow-x: auto;
+        overflow-x: hidden;
     }
 
     .category {

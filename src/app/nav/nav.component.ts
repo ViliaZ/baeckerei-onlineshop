@@ -20,8 +20,9 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openCart(){
-    this.helpers.cartOpen = true;
+  toggleCart(){
+    console.log('openCart in Nav');
+    this.helpers.cartOpen = !this.helpers.cartOpen;
   }
 
   openProductDialog(): void {

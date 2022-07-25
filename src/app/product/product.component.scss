@@ -38,6 +38,7 @@ img {
     position: relative;
     padding: 8px;
     margin-top: 26px;
+    cursor: pointer;
 
     &::after {
         content: "";
