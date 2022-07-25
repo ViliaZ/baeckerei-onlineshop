@@ -6,6 +6,11 @@
     width: 100%;
     background-color: #373333;
     color: white;
+
+    @media screen and (max-width: 700px) {
+        @include mix.flex(center, space-between, column, 12px);
+        min-height: 180px;
+    }
 }
 
 // contains all content
@@ -16,6 +21,10 @@ footer {
     width: 100%;
     max-width: 1280px;
     padding: 0 mix.$padding-main;
+
+    @media screen and (max-width: 700px) {
+        @include mix.flex(center, center, column, 12px);
+    }
 }
 
 img {
@@ -25,6 +34,14 @@ img {
     transform: translate(-50%, -50%);
     height: 84px;
     filter: invert(1);
+
+    @media screen and (max-width: 700px) {
+        position: relative;
+        transform: unset;
+        left: unset;
+        top: unset;
+    }
+    
 }
 
 a {
