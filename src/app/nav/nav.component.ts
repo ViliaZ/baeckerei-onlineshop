@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { ProductDialogComponent } from '../product-dialog/product-dialog.component';
 import { ProductComponent } from '../product/product.component';
+import { CartService } from '../services/cart.service';
 import { HelpersService } from '../services/helpers.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class NavComponent implements OnInit {
 
   constructor(
     private helpers: HelpersService, 
-    public dialog: MatDialog) { }
+    public dialog: MatDialog, 
+    public cartService: CartService) { }
 
   ngOnInit(): void {
   }

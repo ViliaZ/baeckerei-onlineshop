@@ -2,6 +2,11 @@
 
 :host{
     @include mix.flex(space-between, center);
+    position: sticky;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
     width: 100%;
     max-width: 1280px;
     height: 104px; 

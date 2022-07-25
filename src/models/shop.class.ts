@@ -5,6 +5,7 @@ export class Shop {
   admins?: string[]; // ONLY admins can edit shops and products - refers to User UIDs of collection "users"
   productCategories?: string[];
   products?: any[];
+  deliverycosts?: number;
 
   constructor(obj?: any) {
     this.shopUid = obj ? obj.uid : '';
@@ -13,6 +14,7 @@ export class Shop {
     this.admins = obj ? obj.admins : [];
     this.productCategories = obj ? obj.productCategories : [];
     this.products = obj ? obj.products : [];
+    this.deliverycosts =  obj ? obj.deliverycosts : 0;
   }
 
   toJson() {
@@ -23,6 +25,7 @@ export class Shop {
       admins: this.admins,
       productCategories: this.productCategories,
       products: this.products,
+      deliverycosts: this.deliverycosts,
     };
   }
 }

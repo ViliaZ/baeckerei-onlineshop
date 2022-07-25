@@ -24,7 +24,7 @@
         (click)="openCart()">
         shopping_basket
         <div class="cart-count">
-            3
+            {{ this.cartService.cart.cartItems.length }}
         </div>
     </mat-icon>
 </div>
