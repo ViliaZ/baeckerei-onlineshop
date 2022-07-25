@@ -30,6 +30,10 @@ export class CartComponent implements OnInit {
     this.cartService.editQuantityOfCartProduct(cartItemIndex, 'decrease');
   }
 
+  handleBuying(){
+    alert('Vielen Dank für ihre Bestellung.');
+  }
+
   closeCart() {
     this.helpers.cartOpen = false;
   }
