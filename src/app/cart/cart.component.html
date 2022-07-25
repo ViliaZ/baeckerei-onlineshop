@@ -12,11 +12,11 @@
 <!-- Products in Cart -->
 <ng-template #defaultCart>
     <div *ngFor="let cartItem of cartService.cart.cartItems" class="product">
-        <div class="amount">{{ cartItem.amount }}</div>
+        <div class="amount">{{ cartItem.quantity }}</div>
         <div class="productinfo">
             <div class="product-top">
                 <span>{{ cartItem.product.name }}</span>
-                <span>{{ (cartItem.product.price | number : '1.2-2' )}} €</span>
+                <span>{{ ((cartItem.product.price * cartItem.quantity) | number : '1.2-2' )}} €</span>
             </div>
             <div class="product-bottom">
                 <span (click)="toggleCommentBox()" class="comment">Anmerkung hinzufügen</span>

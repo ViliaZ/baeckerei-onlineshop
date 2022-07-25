@@ -21,13 +21,26 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {}
 
   onProductAdding() {
-    this.cartService.addProductToCart(this.product);
+    if (this.productsInCart()) {
+      console.log('product already in cart');
+      this.cartService.increaseQuantity(this.product);
+    } else {
+      this.cartService.addProductToCart(this.product);
+    }
     this.cartService.cart.calculateSubTotalPrice();
     this.toggleCart();
   }
 
+  productsInCart() {
+    return this.cartService.cart.cartItems.some(
+      (item) => item.product.uid === this.product.uid
+    );
+  }
+
   toggleCart() {
     this.helpers.cartOpen = true;
-    setTimeout(() => {this.helpers.cartOpen = false;}, 1500);
+    setTimeout(() => {
+      this.helpers.cartOpen = false;
+    }, 1500);
   }
 }
