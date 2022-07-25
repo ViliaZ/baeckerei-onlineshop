@@ -8,11 +8,10 @@
         title="home">
     </div>
 
-
     <div class="search">
         <input placeholder="Lieblingsbäcker finden" type="text">
         <button>
-            <mat-icon aria-label="brotkorb" fontIcon="home">search</mat-icon>
+            <mat-icon fontIcon="home">search</mat-icon>
         </button>
     </div>
 
@@ -29,7 +28,7 @@
             title="warenkorb"
             (click)="toggleCart()">
             shopping_basket
-            <div class="cart-count">
+            <div class="cart-count" [class.activeBg]="this.cartService.cart.cartItems.length > 0">
                 {{ this.cartService.cart.cartItems.length }}
             </div>
         </mat-icon>
