@@ -8,18 +8,22 @@ import { Shop } from 'src/models/shop.class';
 })
 export class FirebaseService {
   public products$!: Observable<any[]>;
+  public currentShopInfos$!:  Observable<any>;
 
   constructor(private fs: AngularFirestore) {}
 
   getCurrentShopInfo(shop: string): Observable<any> {
-    return this.fs.collection('shops')
+    this.currentShopInfos$ = this.fs
+    .collection('shops')
     .doc(shop)
     .valueChanges();
+    return this.currentShopInfos$
   }
 
   loadAllShopProductsFromDB(shopUID: string): Observable<any[]> {
     this.products$ = this.fs
-      .collection('products', (ref) => ref.where('shopUID', '==', shopUID))
+      .collection('products', (ref) => ref
+      .where('shopUID', '==', shopUID))
       .valueChanges();
     return this.products$;
   }

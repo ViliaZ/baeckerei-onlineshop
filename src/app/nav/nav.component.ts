@@ -26,9 +26,7 @@ export class NavComponent implements OnInit {
   }
 
   openProductDialog(): void {
-    this.dialog.open(ProductDialogComponent, {
-      width: '450px',
-    });
+    this.dialog.open(ProductDialogComponent);
   }
 
 }

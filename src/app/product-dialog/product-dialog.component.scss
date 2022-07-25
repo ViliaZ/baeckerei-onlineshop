@@ -1,0 +1,49 @@
+@use "../../styles/mixins" as mix; //also imports _variables.scss
+
+:host {
+    @include mix.flex(flex-start, center, column, 16px);
+    width: max-content;
+    position: relative;
+    margin: auto;
+    background-color: white;
+}
+
+.row {
+    @include mix.flex(flex-start, center, row, 20px);
+    width: 100%;
+}
+
+.buttons {
+    width: 100%;
+    margin-bottom: 12px;
+    @include mix.flex(flex-end, center, row, 8px);
+
+    .btn-save {
+        background-color: mix.$secondary-color;
+    }
+
+    .btn-cancel {
+        background-color: transparent;
+    }
+}
+
+button {
+    @include mix.flex(center, center);
+    padding: 6px 10px;
+    border: 0.04rem solid lightgrey;
+    border-radius: 3px;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+.m-top16 {
+    margin-top: 16px;
+}
+
+ul {
+    list-style-type: none;
+    margin-top: 4px;
+  }

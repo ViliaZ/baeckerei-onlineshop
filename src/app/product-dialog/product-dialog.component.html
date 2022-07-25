@@ -1,0 +1,103 @@
+<h3>Neues Produkt anlegen</h3>
+
+<div mat-dialog-content>
+    <form #addProductForm>
+        <div class="row">
+            <mat-form-field appearance="standard">
+                <mat-label>Produktname</mat-label>
+                <input matInput placeholder="Produktname" required minlength="3">
+                <mat-hint>min. 3 Zeichen</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard">
+                <mat-label>Beschreibung (kurz)</mat-label>
+                <input matInput placeholder="Beschreibung (kurz)" required maxlength="45">
+                <mat-hint>z.B. "Mit Vollkorn & Nüssen"</mat-hint>
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="standard">
+                <mat-label>Preis pro Einheit</mat-label>
+                <input matInput placeholder="Preis" required type="number">
+                <mat-hint>Währung: €</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard">
+                <mat-label>Einheit</mat-label>
+                <input matInput placeholder="Einheit" required minlength="3">
+                <mat-hint>z.B. "1 Stück" oder "500 g"</mat-hint>
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="standard">
+                <mat-label>Produktkategorien</mat-label>
+                <input matInput placeholder="Kategorien">
+                <mat-hint>Mehrfachauswahl möglich</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard">
+                <mat-label>Beschreibung (lang)</mat-label>
+                <input matInput placeholder="Produktdetails">
+                <mat-hint>z.B. Zutaten, Besonderheiten</mat-hint>
+            </mat-form-field>
+        </div>
+
+
+        <div class="row m-top16">
+            <section class="example-section">
+                <mat-checkbox
+                    class="example-margin"
+                    #bundleCheckbox 
+                    labelPosition="after">
+                    Dieses Produkt ist ein Bundle
+                </mat-checkbox>
+              </section> 
+        </div>
+
+        <div *ngIf="bundleCheckbox.checked" class="row m-top16">
+            <section>
+                <mat-label>Bitte Bundle-Produkte wählen:</mat-label>
+                  <ul>
+                    <li *ngFor="let product of noBundleProducts">
+                      <mat-checkbox>
+                        {{ product.name }}
+                      </mat-checkbox>
+                    </li>
+                  </ul>
+              </section>
+
+            <!-- <mat-form-field appearance="standard">
+                <mat-label>Einzelprodukte</mat-label>
+                <input matInput placeholder="Alle Produkte im Bundle">
+            </mat-form-field> -->
+        </div>
+
+
+
+    </form>
+
+    <div mat-dialog-actions class="buttons">
+        <button class="btn-cancel" mat-button mat-dialog-close>Abbrechen</button>
+        <button class="btn-save" type="submit" (click)="saveNewProduct()" mat-button mat-dialog-close cdkFocusInitial>Produkt
+            anlegen</button>
+    </div>
+</div>
+
+
+<!-- 
+
+
+isBundle: boolean;
+bundleProductUIDs: string[];
+
+
+
+
+ ******* TODO ********* -->
+<!-- <mat-form-field appearance="standard" >
+    <mat-label>Produktbild</mat-label>
+    <input matInput placeholder="Hier hochladen" disabled>
+    <mat-hint>Momentan nicht verfügar</mat-hint>
+</mat-form-field> -->
