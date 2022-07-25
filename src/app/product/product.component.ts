@@ -20,18 +20,18 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onProductAdding() {
-    if (this.productsInCart()) {
-      console.log('product already in cart');
-      this.cartService.increaseQuantity(this.product);
+  handleProductAdding() {
+    if (this.isInCartAlready()) {
+      let indexInCart = this.cartService.getIndexOfProductInCart(this.product);
+      this.cartService.editQuantityOfCartProduct(indexInCart);
     } else {
-      this.cartService.addProductToCart(this.product);
+      this.cartService.addNewProductToCart(this.product);
     }
     this.cartService.cart.calculateSubTotalPrice();
     this.toggleCart();
   }
 
-  productsInCart() {
+  isInCartAlready() {
     return this.cartService.cart.cartItems.some(
       (item) => item.product.uid === this.product.uid
     );

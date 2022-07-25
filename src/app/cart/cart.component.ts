@@ -20,7 +20,14 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.cart = this.cartService.cart;
-    console.log(this.cart);
+  }
+
+  handleIncreaseProductQuantity(cartItemIndex: number) {
+    this.cartService.editQuantityOfCartProduct(cartItemIndex);
+  }
+
+  handleDecreaseProductQuantity(cartItemIndex: number) {
+    this.cartService.editQuantityOfCartProduct(cartItemIndex, 'decrease');
   }
 
   closeCart() {

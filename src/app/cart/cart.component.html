@@ -1,17 +1,14 @@
-<button class="btn-close" (click)="closeCart()">
-    close
-</button>
+<button class="btn-close" (click)="closeCart()">close</button>
 <h3>Warenkorb</h3>
 
 <div class="emptyCart" *ngIf="cart.cartItems.length === 0; else defaultCart">
-   <img src="./assets/img/emptyCart.png" alt="emptyCart">
-   <span>Dein Warenkorb ist leer</span> 
-
+    <img src="./assets/img/emptyCart.png" alt="emptyCart">
+    <span>Dein Warenkorb ist leer</span>
 </div>
 
 <!-- Products in Cart -->
 <ng-template #defaultCart>
-    <div *ngFor="let cartItem of cartService.cart.cartItems" class="product">
+    <div *ngFor="let cartItem of cartService.cart.cartItems; index as i" class="product">
         <div class="amount">{{ cartItem.quantity }}</div>
         <div class="productinfo">
             <div class="product-top">
@@ -20,16 +17,14 @@
             </div>
             <div class="product-bottom">
                 <span (click)="toggleCommentBox()" class="comment">Anmerkung hinzufügen</span>
+              
+                <!-- buttons PLUS + MINUS -->
                 <div class="buttons">
-                    <button>
-                        <mat-icon title="minus">
-                            remove
-                        </mat-icon>
+                    <button (click)="handleDecreaseProductQuantity(i)">
+                        <mat-icon title="minus">remove</mat-icon>
                     </button>
-                    <button>
-                        <mat-icon title="plus">
-                            add
-                        </mat-icon>
+                    <button (click)="handleIncreaseProductQuantity(i)">
+                        <mat-icon title="plus">add</mat-icon>
                     </button>
                 </div>
             </div>
@@ -47,7 +42,6 @@
 
         </div>
     </div>
-
 
     <!-- Delivery Costs -->
     <span class="deliveryinfo">
@@ -73,5 +67,4 @@
 
     <button class="btn-order">Bezahlen</button>
     <button class="btn-cancel">Abbrechen</button>
-
 </ng-template>

@@ -15,23 +15,39 @@ export class CartService {
     this.cart = new Cart();
   }
 
-  addProductToCart(product: Product) {
-    let cartProduct: any = {
+  getIndexOfProductInCart(product: Product){
+    return this.cart.cartItems.findIndex(
+      (item: any) => item.product.uid === product.uid
+    );
+  }
+
+  addNewProductToCart(product: Product) {
+    let newCartProduct: any = {
       product: product,
       quantity: 1,
       comment: '',
     };
     // Add product to cart
-    this.cart.cartItems.push(cartProduct);
+    this.cart.cartItems.push(newCartProduct);
     console.log('new Cart und product', this.cart);
   }
 
-  increaseQuantity(product: Product) {
-    let currentProduct = this.cart.cartItems.find(
-      (item) => item.product.uid === product.uid
-    );
-    currentProduct.quantity++;
-    console.log('quantity erhöht',this.cart);
-    
+  deleteProductFromCart(cartProductIndex: number) {
+    this.cart.cartItems.splice(cartProductIndex, 1);
+  }
+
+  editQuantityOfCartProduct(cartProductIndex: any, action: string = 'increase') {
+    let currentCartItem = this.cart.cartItems[cartProductIndex];
+    if (action === 'decrease') {
+      this.checkForDeleteProduct(currentCartItem, cartProductIndex);
+    }
+    action == 'increase' ? currentCartItem.quantity++ : currentCartItem.quantity--; 
+  }
+
+  checkForDeleteProduct(currentCartItem: any, cartProductIndex: number) {
+    if (currentCartItem.quantity === 1) {
+      this.deleteProductFromCart(cartProductIndex);
+    }
   }
 }
+
