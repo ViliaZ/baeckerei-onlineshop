@@ -1,5 +1,11 @@
-<img src="{{ product?.photoURL }}" alt="product">
-<img *ngIf="product?.photoURL == ''" src="./assets/img/products/default.png" alt="product">
+
+<!-- default placeholder Photo -->
+<img *ngIf="product?.photoURL == ''; else productPhoto" src="./assets/img/products/default.png" alt="product">
+
+<!-- productPhoto, if available -->
+<ng-template #productPhoto>
+    <img src="{{ product?.photoURL }}" alt="product">
+</ng-template>
 
 <h3>{{ product?.name }}</h3>
 <h4>{{ product?.description }}</h4>
