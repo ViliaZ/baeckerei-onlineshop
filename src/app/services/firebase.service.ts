@@ -29,11 +29,18 @@ export class FirebaseService {
     return this.products$;
   }
 
-  // TODO
   addProductToShop(product: Product, shopUID: string): void {
     this.fs.collection('products').add({
-      ...product,
+      ...product.toJson(),
       shopUID,
     });
+  }
+
+
+
+///// for Developing purposes only /////
+
+  deleteProductFromShop(productUID: string): void {
+    this.fs.collection('products').doc(productUID).delete();
   }
 }
