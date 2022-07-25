@@ -9,6 +9,11 @@
     border-top: 0.04rem solid lightgrey;
     padding-bottom: 42px;
     overflow-y: auto;
+
+    @media screen and (max-width: 700px) {
+        @include mix.flex(center, space-between, column, 12px);
+        margin-top: 164px;
+    }
 }
 
 h3 {
