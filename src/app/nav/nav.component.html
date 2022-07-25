@@ -1,31 +1,38 @@
-<img 
-    src="./assets/img/logo-black.png" 
-    routerLink="/"
-    alt="brotkorb-logo" 
-    class="logo"
-    title="home">
-<div class="search">
-    <input placeholder="Lieblingsbäcker finden" type="text">
-    <button>
-        <mat-icon aria-label="brotkorb" fontIcon="home">search</mat-icon>
-    </button>
-</div>
-<div class="right-container">
-    <span>Versandkostenfrei ab 10,00 Euro</span>
-    <mat-icon 
-        class="icon-nav" 
-        title="login"
-        (click)="openProductDialog()">
-        account_circle
-    </mat-icon>
-    <mat-icon 
-        class="icon-nav" 
-        title="warenkorb"
-        (click)="toggleCart()">
-        shopping_basket
-        <div class="cart-count">
-            {{ this.cartService.cart.cartItems.length }}
-        </div>
-    </mat-icon>
-</div>
+<div class="wrapper">
+    <div class="left-container">
+        <img
+        src="./assets/img/logo-black.png"
+        routerLink="/"
+        alt="brotkorb-logo"
+        class="logo"
+        title="home">
+    </div>
 
+
+    <div class="search">
+        <input placeholder="Lieblingsbäcker finden" type="text">
+        <button>
+            <mat-icon aria-label="brotkorb" fontIcon="home">search</mat-icon>
+        </button>
+    </div>
+
+    <div class="right-container">
+        <span>Versandkostenfrei ab 10,00 Euro</span>
+        <mat-icon
+            class="icon-nav"
+            title="login"
+            (click)="openProductDialog()">
+            account_circle
+        </mat-icon>
+        <mat-icon
+            class="icon-nav"
+            title="warenkorb"
+            (click)="toggleCart()">
+            shopping_basket
+            <div class="cart-count">
+                {{ this.cartService.cart.cartItems.length }}
+            </div>
+        </mat-icon>
+    </div>
+
+</div>

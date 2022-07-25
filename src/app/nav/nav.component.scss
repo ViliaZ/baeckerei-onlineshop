@@ -1,28 +1,39 @@
 @use "../../styles/mixins" as mix; //also imports _variables.scss
 
 :host{
-    @include mix.flex(space-between, center);
+    @include mix.flex(center, center);
     position: sticky;
     z-index: 2;
     top: 0;
     left: 0;
     right: 0;
     width: 100%;
-    max-width: 1280px;
     height: 104px; 
-    margin: auto;
     padding: 0 mix.$padding-main;
     background-color: white;
 }
 
-.logo{
-    height: 44px;
-    cursor: pointer;
+.wrapper{
+    @include mix.flex(space-between, center);
+    width: 100%;
+    max-width: 1280px;
+    margin: auto;
 }
+
+.left-container{
+    width: calc(100% / 3);
+
+    .logo{
+        height: 44px;
+        cursor: pointer;
+    }
+}
+
 
 // SEARCHBAR
 .search{
     @include mix.flex(center, center);
+    width: calc(100% / 3);
 
     input{
         width: 204px;
@@ -58,6 +69,7 @@
 
 .right-container{
     @include mix.flex(flex-end, center,row, 22px);
+    width: calc(100% / 3);
 
     span{
         font-weight: 200;
