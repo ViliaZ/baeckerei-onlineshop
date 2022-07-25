@@ -31,9 +31,12 @@
         </div>
 
         <!-- Main shop section with products -->
-        <div class="products">
-            <app-product *ngFor="let product of currentCategoryProducts" [product]="product"></app-product>
-        </div>
+        <div *ngIf="currentCategoryProducts.length < 1; else products" class=" products">Zur Zeit sind keine Produkte dieser Kategorie vorrätig.</div>
+        <ng-template #products >
+            <div class="products">
+                <app-product *ngFor="let product of currentCategoryProducts" [product]="product"></app-product>
+            </div>
+        </ng-template>
 
         <!-- toggle Button for cart -->
         <!-- <button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button> -->
