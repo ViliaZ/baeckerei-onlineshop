@@ -10,16 +10,17 @@ import { HelpersService } from '../services/helpers.service';
   styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent implements OnInit {
-
   public commentOpen: boolean = false;
-public cart!: Cart;
+  public cart!: Cart;
 
-  constructor(private helpers: HelpersService, public cartService: CartService) {}
+  constructor(
+    private helpers: HelpersService,
+    public cartService: CartService
+  ) {}
 
   ngOnInit(): void {
-this.cart = this.cartService.cart;
-console.log(this.cart);
-
+    this.cart = this.cartService.cart;
+    console.log(this.cart);
   }
 
   closeCart() {

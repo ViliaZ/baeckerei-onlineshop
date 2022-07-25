@@ -3,66 +3,75 @@
 </button>
 <h3>Warenkorb</h3>
 
+<div class="emptyCart" *ngIf="cart.cartItems.length === 0; else defaultCart">
+   <img src="./assets/img/emptyCart.png" alt="emptyCart">
+   <span>Dein Warenkorb ist leer</span> 
+
+</div>
+
 <!-- Products in Cart -->
-<div *ngFor="let cartItem of cartService.cart.cartItems" class="product">
-    <div class="amount">{{ cartItem.amount }}</div>
-    <div class="productinfo">
-        <div class="product-top">
-            <span>{{ cartItem.product.name }}</span>
-            <span>{{ (cartItem.product.price | number : '1.2-2' )}} €</span>
-        </div>
-        <div class="product-bottom">
-            <span (click)="toggleCommentBox()" class="comment">Anmerkung hinzufügen</span>
-            <div class="buttons">
-                <button>
-                    <mat-icon title="minus">
-                        remove
-                    </mat-icon>
-                </button>
-                <button>
-                    <mat-icon title="plus">
-                        add
-                    </mat-icon>
-                </button>
+<ng-template #defaultCart>
+    <div *ngFor="let cartItem of cartService.cart.cartItems" class="product">
+        <div class="amount">{{ cartItem.amount }}</div>
+        <div class="productinfo">
+            <div class="product-top">
+                <span>{{ cartItem.product.name }}</span>
+                <span>{{ (cartItem.product.price | number : '1.2-2' )}} €</span>
             </div>
-        </div>
-        <div *ngIf="cartItem.comment" class="comments-final">
-            <span>{{ cartItem?.comment || ''}}</span>
-        </div>
-
-        <div class="commentContainer" *ngIf="commentOpen">
-            <textarea placeholder="Dein Kommentar" cols="50"></textarea>
-            <div class="buttons-comment">
-                <button class="btn-comment" (click)="toggleCommentBox()">Abbrechen</button>
-                <button class="btn-comment" (click)="saveCommentToProduct()">Speichern</button>
+            <div class="product-bottom">
+                <span (click)="toggleCommentBox()" class="comment">Anmerkung hinzufügen</span>
+                <div class="buttons">
+                    <button>
+                        <mat-icon title="minus">
+                            remove
+                        </mat-icon>
+                    </button>
+                    <button>
+                        <mat-icon title="plus">
+                            add
+                        </mat-icon>
+                    </button>
+                </div>
             </div>
+            <div *ngIf="cartItem.comment" class="comments-final">
+                <span>{{ cartItem?.comment || ''}}</span>
+            </div>
+
+            <div class="commentContainer" *ngIf="commentOpen">
+                <textarea placeholder="Dein Kommentar" cols="50"></textarea>
+                <div class="buttons-comment">
+                    <button class="btn-comment" (click)="toggleCommentBox()">Abbrechen</button>
+                    <button class="btn-comment" (click)="saveCommentToProduct()">Speichern</button>
+                </div>
+            </div>
+
         </div>
-
     </div>
-</div>
 
 
-<!-- Delivery Costs -->
-<span class="deliveryinfo">
-    Wir liefern ab einem Mindestbestellwert von 6,00 € (exkl. Lieferkosten).
-    Ab 10,00 Euro erfolgt der Versand kostenfrei.
-</span>
+    <!-- Delivery Costs -->
+    <span class="deliveryinfo">
+        Wir liefern ab einem Mindestbestellwert von 6,00 € (exkl. Lieferkosten).
+        Ab 10,00 Euro erfolgt der Versand kostenfrei.
+    </span>
 
-<!-- Calculations -->
-<div class="calculations">
-    <div class="calculation">
-        <span>Zwischensumme</span>
-        <span>2,00 €</span>
+    <!-- Calculations -->
+    <div class="calculations">
+        <div class="calculation">
+            <span>Zwischensumme</span>
+            <span>{{ cart.subTotalPrice | number : '1.2-2' }} €</span>
+        </div>
+        <div class="calculation">
+            <span>Lieferkosten</span>
+            <span>{{ cart.deliveryCosts | number : '1.2-2' }} €</span>
+        </div>
+        <div class="calculation finalSum">
+            <span>Gesamt</span>
+            <span>{{ cart.totalPrice | number : '1.2-2' }} €</span>
+        </div>
     </div>
-    <div class="calculation">
-        <span>Lieferkosten</span>
-        <span>2,00 €</span>
-    </div>
-    <div class="calculation finalSum">
-        <span>Gesamt</span>
-        <span>2,00 €</span>
-    </div>
-</div>
 
-<button class="btn-order">Bezahlen</button>
-<button class="btn-cancel">Abbrechen</button>
+    <button class="btn-order">Bezahlen</button>
+    <button class="btn-cancel">Abbrechen</button>
+
+</ng-template>

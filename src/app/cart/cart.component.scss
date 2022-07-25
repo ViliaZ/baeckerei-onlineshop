@@ -6,7 +6,7 @@
     min-width: 280px;
     max-height: 100vh;
     padding-bottom: 42px;
-    overflow-Y: auto;
+    overflow-y: auto;
 }
 
 h3 {
@@ -15,6 +15,14 @@ h3 {
     text-align: center;
     padding-bottom: 32px;
     border-bottom: 0.04rem lightgrey solid;
+}
+
+.emptyCart {
+    @include mix.flex(center, center, column, 12px);
+    
+    img {
+        height: 54px;
+    }
 }
 
 .product {
@@ -42,7 +50,7 @@ h3 {
         @include mix.flex(flex-start, center, row, 6px);
     }
 
-    .comment{
+    .comment {
         text-decoration: underline;
         font-style: italic;
         font-weight: 200;
@@ -50,17 +58,17 @@ h3 {
         color: darkgrey;
         cursor: pointer;
 
-        &:hover{
+        &:hover {
             opacity: 0.8;
         }
     }
 }
 
-.commentContainer{
+.commentContainer {
     width: 100%;
 }
 
-textarea{
+textarea {
     width: 100%;
     resize: none;
     padding: 6px;
@@ -131,11 +139,11 @@ button {
     font-weight: 200;
 }
 
-.buttons-comment{
+.buttons-comment {
     width: 100%;
     @include mix.flex(flex-end, center);
 
-    .btn-comment{
+    .btn-comment {
         padding: 4px 0px 4px 12px;
         background-color: transparent;
         font-size: 14px;
@@ -144,4 +152,3 @@ button {
         cursor: pointer;
     }
 }
-
