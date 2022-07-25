@@ -9,13 +9,15 @@ export interface CartProduct {
 export class Cart {
   deliveryCosts: number;
   minOrder: number;
+  minForDeliveryFree: number = 10;
   cartItems: CartProduct[] | any[];
   subTotalPrice: number;
   totalPrice: number;
   voucher: string;
 
   constructor(obj?: any) {
-    this.minOrder = obj ? obj.minOrder : 10;
+    this.minOrder = obj ? obj.minOrder : 6;
+    this.minForDeliveryFree = obj ? obj.minForDeliveryFree : 10;
     this.cartItems = obj ? obj.cartItems : [];
     this.deliveryCosts = obj ? obj.deliveryCosts : 5;
     this.subTotalPrice = obj ? obj.subTotalPrice : 0;
@@ -33,19 +35,18 @@ export class Cart {
 
   calculateTotalPrice() {
     this.calculateSubTotalPrice();
-    let finalDeliveryCosts: number = this.calcDeliveryCosts();
-    console.log('finalDeliveryCosts', finalDeliveryCosts);
-    
+    let finalDeliveryCosts: number = this.calcDeliveryCosts();   
     this.totalPrice = this.subTotalPrice + finalDeliveryCosts;
   }
 
   calcDeliveryCosts(){
-    return (this.subTotalPrice >= this.minOrder) ? 0 : this.deliveryCosts;
+    return (this.subTotalPrice >= this.minForDeliveryFree) ? 0 : this.deliveryCosts;
   }
 
   toJson() {
     return {
       minOrder: this.minOrder,
+      minForDeliveryFree: this.minForDeliveryFree,
       items: this.cartItems,
       deliveryCosts: this.deliveryCosts,
       subTotalPrice: this.subTotalPrice,
