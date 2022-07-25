@@ -14,9 +14,12 @@
                 <mat-icon>navigate_before</mat-icon>
             </button>
 
-
             <div class="scrollcontainer" #scrollcontainer>
-                <div *ngFor="let category of currentShop?.productCategories" class="category">
+                <div 
+                    *ngFor="let category of currentShop?.productCategories" 
+                    (click)="setCategoryProducts(category)"
+                    class="category"
+                    [class.showAsActive]="currentCategory === category">
                         <img src="./assets/img/categories/{{ category }}.png" alt="Bundles" class="img-category">
                         <span>{{ category }}</span>
                 </div>
@@ -29,7 +32,7 @@
 
         <!-- Main shop section with products -->
         <div class="products">
-            <app-product *ngFor="let product of fs.products$ | async " [product]="product"></app-product>
+            <app-product *ngFor="let product of currentCategoryProducts" [product]="product"></app-product>
         </div>
 
         <!-- toggle Button for cart -->

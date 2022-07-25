@@ -11,18 +11,19 @@ export class FirebaseService {
 
   constructor(private fs: AngularFirestore) {}
 
-  getCurrentShopInfo(shop: string) {
+  getCurrentShopInfo(shop: string): Observable<any> {
     return this.fs.collection('shops')
     .doc(shop)
     .valueChanges();
   }
 
-  getAllShopProducts(shopUID: string): Observable<any[]> {
+  loadAllShopProductsFromDB(shopUID: string): Observable<any[]> {
     this.products$ = this.fs
       .collection('products', (ref) => ref.where('shopUID', '==', shopUID))
       .valueChanges();
     return this.products$;
   }
 
+  // TODO
   addProductToShop(shopUid: string, data: any) {}
 }

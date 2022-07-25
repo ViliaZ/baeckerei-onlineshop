@@ -63,6 +63,10 @@ mat-drawer-content {
     }
 }
 
+.showAsActive{
+    background-color: rgba(128, 128, 128, 0.145);
+}
+
 button {
     position: absolute;
     bottom: 50%;

@@ -7,7 +7,6 @@ export class HelpersService {
 
   cartOpen: boolean = false;
 
-  constructor() {
-   }
+  constructor() { }
 
 }
