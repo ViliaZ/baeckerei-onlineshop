@@ -8,21 +8,19 @@
 }
 
 // MATERIAL DRAWER
-// change name!!  //////
 .cart-container {
     width: 100%;
     height: 100%;
 }
 
 mat-drawer-content {
-    // @include mix.flex(flex-start, center);
     padding: 12px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
-// prevent from scrolling the navbar
+// prevent from scrolling the drawer
 .mat-drawer:not(.mat-drawer-side) {
     position: fixed;
 }
@@ -31,7 +29,6 @@ mat-drawer-content {
     position: fixed !important;
 }
 
-/////////////////
 
 .categories {
     position: relative;
@@ -49,9 +46,9 @@ mat-drawer-content {
         @include mix.flex(center, center, column, 6px);
         font-weight: 200;
         font-size: 14px;
-        cursor: pointer;
         padding: 4px 8px;
         border-radius: 6px;
+        cursor: pointer;
 
         &:hover {
             background-color: rgba(128, 128, 128, 0.145);
@@ -61,6 +58,16 @@ mat-drawer-content {
             height: 42px;
         }
     }
+}
+
+.products {
+    @include mix.flex(space-evenly, center, row, 32px);
+    width: 100%;
+    max-width: 1280px;
+    flex: 1;
+    margin: auto;
+    padding: 20px mix.$padding-main 80px;
+    flex-wrap: wrap;
 }
 
 .showAsActive{
@@ -90,15 +97,4 @@ button {
 
 .btn-right {
     right: 20px;
-}
-
-// product section (main section)
-.products {
-    @include mix.flex(space-evenly, center, row, 32px);
-    width: 100%;
-    max-width: 1280px;
-    flex: 1;
-    margin: auto;
-    padding: 20px mix.$padding-main 80px;
-    flex-wrap: wrap;
 }
