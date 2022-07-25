@@ -68,6 +68,6 @@
         </div>
     </div>
 
-    <button (click)="handleBuying()" class="btn-order">Bezahlen</button>
+    <button (click)="handleBuying()" [disabled]="cart.subTotalPrice < cart.minOrder" class="btn-order">Bezahlen</button>
     <button (click)="closeCart()" class="btn-cancel">Abbrechen</button>
 </ng-template>
