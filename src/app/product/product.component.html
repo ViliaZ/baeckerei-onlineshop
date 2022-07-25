@@ -1,4 +1,6 @@
 <img src="{{ product?.photoURL }}" alt="product">
+<img *ngIf="product?.photoURL == ''" src="./assets/img/products/default.png" alt="product">
+
 <h3>{{ product?.name }}</h3>
 <h4>{{ product?.description }}</h4>
 <div (click)="handleProductAdding()" class="bottom">
