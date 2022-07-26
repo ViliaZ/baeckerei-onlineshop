@@ -13,7 +13,6 @@
     }
 }
 
-// contains all content
 footer {
     position: relative;
     @include mix.flex(space-between, center);
@@ -41,7 +40,6 @@ img {
         left: unset;
         top: unset;
     }
-    
 }
 
 a {
@@ -53,5 +51,4 @@ a {
     &:hover{
         opacity: 0.8;
     }
-
 }

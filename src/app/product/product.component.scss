@@ -62,10 +62,9 @@ button {
     }
 }
 
-// image on product info
+// image on product info - not in use yet
 .product-info {
     @include mix.flex(center, center, row, 4px);
-    background-color: red;
 
     img {
         width: 18px;

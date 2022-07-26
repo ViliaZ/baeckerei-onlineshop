@@ -18,6 +18,7 @@
     bottom: 10%;
     left: 50%; 
     transform: translateX(-50%);
+    text-align: center;
     @include mix.flex(flex-start, center, column);
 
     img{
