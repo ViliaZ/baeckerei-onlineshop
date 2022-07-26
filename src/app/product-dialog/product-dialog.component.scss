@@ -11,6 +11,10 @@
 .row {
     @include mix.flex(flex-start, center, row, 20px);
     width: 100%;
+
+    @media screen and (max-width: 600px) {
+        flex-wrap: wrap;
+    }
 }
 
 .buttons {

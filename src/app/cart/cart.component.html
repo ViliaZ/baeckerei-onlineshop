@@ -1,4 +1,3 @@
-<!-- <button class="btn-close" (click)="closeCart()">close</button> -->
 <h3>Warenkorb</h3>
 
 <div class="emptyCart" *ngIf="cart.cartItems.length === 0; else defaultCart">
@@ -8,6 +7,7 @@
 
 <!-- Products in Cart -->
 <ng-template #defaultCart>
+
     <div *ngFor="let cartItem of cartService.cart.cartItems; index as i" class="product">
         <div class="amount">{{ cartItem.quantity }}</div>
         <div class="productinfo">
@@ -16,7 +16,7 @@
                 <span>{{ ((cartItem.product.price * cartItem.quantity) | number : '1.2-2' )}} €</span>
             </div>
             <div class="product-bottom">
-                <span (click)="toggleCommentBox()" class="comment">Anmerkung hinzufügen</span>
+                <span (click)="toggleCommentBox(i)" class="comment">Anmerkung hinzufügen</span>
 
                 <!-- buttons PLUS + MINUS -->
                 <div class="buttons">
@@ -28,15 +28,16 @@
                     </button>
                 </div>
             </div>
+
             <div *ngIf="cartItem.comment" class="comments-final">
-                <span>{{ cartItem?.comment || ''}}</span>
+                <span>{{ cartItem.comment || ''}}</span>
             </div>
 
             <div class="commentContainer" *ngIf="commentOpen">
-                <textarea placeholder="Dein Kommentar" cols="50"></textarea>
+                <textarea [(ngModel)]="cartItemComment" placeholder="Dein Kommentar" cols="50"></textarea>
                 <div class="buttons-comment">
-                    <button class="btn-comment" (click)="toggleCommentBox()">Abbrechen</button>
-                    <button class="btn-comment" (click)="saveCommentToProduct()">Speichern</button>
+                    <button class="btn-comment" (click)="toggleCommentBox(i)">Abbrechen</button>
+                    <button class="btn-comment" (click)="handleProductComment(i)">Speichern</button>
                 </div>
             </div>
 

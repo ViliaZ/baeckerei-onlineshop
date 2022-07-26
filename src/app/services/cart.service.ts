@@ -52,5 +52,9 @@ export class CartService {
       this.deleteProductFromCart(cartProductIndex);
     }
   }
+
+  addCommentToCartItem(cartItemIndex: number, commentText: string) {
+   this.cart.cartItems[cartItemIndex].comment = commentText;
+  }
 }
 

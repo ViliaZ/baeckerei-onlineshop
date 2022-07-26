@@ -12,6 +12,7 @@ import { HelpersService } from '../services/helpers.service';
 export class CartComponent implements OnInit {
   public commentOpen: boolean = false;
   public cart!: Cart;
+  public cartItemComment: string = ''; //ngModel
 
   constructor(
     private helpers: HelpersService,
@@ -30,20 +31,28 @@ export class CartComponent implements OnInit {
     this.cartService.editQuantityOfCartProduct(cartItemIndex, 'decrease');
   }
 
-  handleBuying(){
+  toggleCommentBox(i: number) {
+    if (this.productHasComment(i)) {
+      this.cartItemComment = this.cartService.cart.cartItems[i].comment;
+    }
+    this.commentOpen = !this.commentOpen;
+  }
+
+  handleProductComment(cartItemIndex: number) {
+    this.cartService.addCommentToCartItem(cartItemIndex, this.cartItemComment);
+    this.cartItemComment = '';
+    this.commentOpen = !this.commentOpen;
+  }
+
+  productHasComment(i: number) {
+    return this.cartService.cart.cartItems[i].comment;
+  }
+
+  handleBuying() {
     alert('Vielen Dank für ihre Bestellung.');
   }
 
   closeCart() {
     this.helpers.cartOpen = false;
-  }
-
-  saveCommentToProduct() {
-    // Add Parameter "cartProduct: Product"
-    // add comment to order referring to the product
-  }
-
-  toggleCommentBox() {
-    this.commentOpen = !this.commentOpen;
   }
 }

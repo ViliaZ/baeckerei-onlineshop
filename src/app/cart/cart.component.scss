@@ -72,6 +72,13 @@ h3 {
     width: 100%;
 }
 
+.comments-final{
+    text-align: start;
+    font-style: italic;
+    font-weight: 200;
+    width: 100%;
+}
+
 textarea {
     width: 100%;
     resize: none;
@@ -132,17 +139,6 @@ button {
     font-size: 16px;
     background-color: transparent;
 }
-
-// .btn-close {
-//     position: absolute;
-//     right: 20px;
-//     top: 100px;
-//     border: none;
-//     background-color: transparent;
-//     text-decoration: underline;
-//     font-size: 14px;
-//     font-weight: 200;
-// }
 
 .buttons-comment {
     width: 100%;
