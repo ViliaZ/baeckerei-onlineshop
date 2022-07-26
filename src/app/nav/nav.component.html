@@ -9,8 +9,8 @@
     </div>
 
     <div class="search">
-        <input placeholder="Lieblingsbäcker finden" type="text">
-        <button>
+        <input [(ngModel)]="searchInput" placeholder="Lieblingsbäcker finden" type="text">
+        <button (click)="handleSearch()">
             <mat-icon fontIcon="home">search</mat-icon>
         </button>
     </div>

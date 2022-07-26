@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ProductDialogComponent } from '../product-dialog/product-dialog.component';
 import { ProductComponent } from '../product/product.component';
 import { CartService } from '../services/cart.service';
@@ -8,19 +8,21 @@ import { HelpersService } from '../services/helpers.service';
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.scss']
+  styleUrls: ['./nav.component.scss'],
 })
 export class NavComponent implements OnInit {
 
+  public searchInput: string = ''; // ngModel
+
   constructor(
-    private helpers: HelpersService, 
-    public dialog: MatDialog, 
-    public cartService: CartService) { }
+    private helpers: HelpersService,
+    public dialog: MatDialog,
+    public cartService: CartService
+  ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  toggleCart(){
+  toggleCart() {
     console.log('openCart in Nav');
     this.helpers.cartOpen = !this.helpers.cartOpen;
   }
@@ -29,4 +31,8 @@ export class NavComponent implements OnInit {
     this.dialog.open(ProductDialogComponent);
   }
 
+  handleSearch() {
+    console.log('searchInput: ', this.searchInput);
+    alert('Sorry, Search function is not yet implemented.');
+  }
 }
