@@ -5,7 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Further used: Firebase, Material Design  
 Hosting: Firebase Hosting  
-Public website: 
+Public website: https://backshop-d15a0.web.app/
 
 
 26th of july 2022
