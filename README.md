@@ -1,27 +1,50 @@
-# Bakery Onlineshop with Storefront
+# Baeckerei-Onlineshop | Onlineshop Bakery
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.1.
 
-## Development server
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.1.  
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Further used: Firebase, Material Design  
+Hosting: Firebase Hosting  
+Public website: 
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+26th of july 2022
 
-## Build
+### About the project: 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+The aim of this project is to create a prototype version of an onlineshop page for a bakery/bakeries. Creating a satisfying experience for end users (online shopping experience) and shop owners (shop maintanance) likewise. 
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+###  Implemented Features
 
-## Running end-to-end tests
+1. Creating a website “brotkorb” to list multiple bakery onlineshops to explore 
+2. Create an example front page for a onlineshop “backverrueckt”
+3. List all shop products on landing view
+4. Filter shop products by category (use scrollable pictured list and left/right arrows to explore categories)
+5. Add products to cart and edit amount of products in cart: Click on any product card bottom or use “plus” and “minus” on cart praducts
+6. Cart calculations: subtotal price, total price, delivery costs (depending on subtotal), minimum order price
+7. User can leave comment for each cart item
+8. Counter for quantity of products in Cart (see Cart-Icon in top menu)
+9. Add new products to a shop via form popup: Open popup via avatar-icon in menu
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
+### Open Issues and workarounds:
+(Note: issues will be fixed soon)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. New Product not shown immediatly after adding —> Please refresh the page manually. 
+2. The “Closing background” of the cart is not showing fullscreen, when cart is open —> Please use cart-icon in menu to force cart to close or scroll down to see the background for closing the cart.
+3. Irregular issue: Cart not open automatically, after adding product to cart —> Please use cart-icon in menu to force cart to open/close
+
+
+### Upcoming:
+
+- Add Login / Authentification for shop owners and customers
+- Add Option for Shop owners to edit their own products: Delete, Edit
+- Implement search functionality for users: see search input field in menu
+- Improve router navigation: use query parameters (shop id) to navigate between multiple onlineshops
+
+
+
+
+*** Note: This project is in prototype version with test data  and test products only.
+
