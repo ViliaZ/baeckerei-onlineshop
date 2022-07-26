@@ -32,8 +32,7 @@ The aim of this project is to create a prototype version of an onlineshop page f
 (Note: issues will be fixed soon)
 
 1. New Product not shown immediatly after adding —> Please refresh the page manually. 
-2. The “Closing background” of the cart is not showing fullscreen, when cart is open —> Please use cart-icon in menu to force cart to close or scroll down to see the background for closing the cart.
-3. Irregular issue: Cart not open automatically, after adding product to cart —> Please use cart-icon in menu to force cart to open/close
+2. Irregular issue: Cart not open automatically, after adding product to cart —> Please use cart-icon in menu to force cart to open/close
 
 
 ### Upcoming:

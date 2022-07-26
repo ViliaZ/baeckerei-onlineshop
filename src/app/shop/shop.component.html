@@ -1,6 +1,7 @@
-<app-hero [currentShop]="currentShop"></app-hero>
 
+    <app-hero [currentShop]="currentShop"></app-hero>
 <mat-drawer-container class="cart-container" hasBackdrop="true">
+
 
     <!-- cart - drawer -->
     <mat-drawer #drawer [opened]="helpers.cartOpen" mode="over" position="end">
@@ -37,8 +38,5 @@
                 <app-product *ngFor="let product of currentCategoryProducts" [product]="product"></app-product>
             </div>
         </ng-template>
-
-        <!-- toggle Button for cart -->
-        <!-- <button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button> -->
     </mat-drawer-content>
 </mat-drawer-container>
