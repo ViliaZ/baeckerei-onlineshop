@@ -36,8 +36,6 @@ export class FirebaseService {
     });
   }
 
-
-
 ///// for Developing purposes only /////
 
   deleteProductFromShop(productUID: string): void {

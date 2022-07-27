@@ -1,3 +1,4 @@
+import { createInflate } from 'zlib';
 import { Product } from './product.class';
 
 export interface CartProduct {
@@ -6,16 +7,26 @@ export interface CartProduct {
   comment?: string;
 }
 
+export interface CartInterface{
+  deliveryCosts: number;
+  minOrder: number;
+  minForDeliveryFree: number;
+  cartItems: CartProduct[];
+  subTotalPrice: number;
+  totalPrice: number;
+  voucher: string;
+}
+
 export class Cart {
   deliveryCosts: number;
   minOrder: number;
   minForDeliveryFree: number = 10;
-  cartItems: CartProduct[] | any[];
+  cartItems: CartProduct[];
   subTotalPrice: number;
   totalPrice: number;
   voucher: string;
 
-  constructor(obj?: any) {
+  constructor(obj?: CartInterface) {
     this.minOrder = obj ? obj.minOrder : 6;
     this.minForDeliveryFree = obj ? obj.minForDeliveryFree : 10;
     this.cartItems = obj ? obj.cartItems : [];
@@ -28,7 +39,8 @@ export class Cart {
   calculateSubTotalPrice() {
     this.subTotalPrice = 0;
     this.cartItems.forEach((item) => {
-      this.subTotalPrice += item.product.price * item.quantity;
+      //if(!!item.product.price)
+        this.subTotalPrice += item.product.price * item.quantity;
     });
     return this.subTotalPrice;
   }

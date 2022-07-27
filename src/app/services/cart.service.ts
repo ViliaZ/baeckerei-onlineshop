@@ -7,7 +7,6 @@ import { Product } from 'src/models/product.class';
   providedIn: 'root',
 })
 export class CartService {
-  // public cart$: BehaviorSubject<Cart> = new BehaviorSubject(new Cart());;
 
   public cart!: Cart;
 
@@ -17,20 +16,18 @@ export class CartService {
 
   getIndexOfProductInCart(product: Product){
     return this.cart.cartItems.findIndex(
-      (item: any) => item.product.uid === product.uid
+      (item: CartProduct) => item.product.uid === product.uid
     );
   }
 
   addNewProductToCart(product: Product) {
-    let newCartProduct: any = {
+    let newCartProduct: CartProduct = {
       product: product,
       quantity: 1,
       comment: '',
     };
-    // Add product to cart
     this.cart.cartItems.push(newCartProduct);
     this.cart.calculateTotalPrice();
-    console.log('new Cart und product', this.cart);
   }
 
   deleteProductFromCart(cartProductIndex: number) {

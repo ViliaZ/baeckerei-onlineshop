@@ -8,8 +8,8 @@ export class Product {
   categories?: string[];  // eg vegan, glutenfree, nussfrei, Süsses,brote
   isBundle: boolean;
   bundleProducts: string[];
-  price?: number; // Euros
-  amount?: string; // connnected to price, e.g. "500g"
+  price: number; // Euros
+  amount: string; // connnected to price, e.g. "500g"
 
   constructor(obj?: any) {
       this.uid = obj ? obj.uid : '',
