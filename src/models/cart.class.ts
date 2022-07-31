@@ -1,4 +1,3 @@
-import { createInflate } from 'zlib';
 import { Product } from './product.class';
 
 export interface CartProduct {
@@ -39,7 +38,6 @@ export class Cart {
   calculateSubTotalPrice() {
     this.subTotalPrice = 0;
     this.cartItems.forEach((item) => {
-      //if(!!item.product.price)
         this.subTotalPrice += item.product.price * item.quantity;
     });
     return this.subTotalPrice;
