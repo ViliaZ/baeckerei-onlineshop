@@ -10,9 +10,9 @@ import { HelpersService } from '../services/helpers.service';
   styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent implements OnInit {
-  public commentOpen: boolean = false;
+  public commentBoxOpen!: string | null;
   public cart!: Cart;
-  public cartItemComment: string = ''; //ngModel
+  public cartItemComment: any = ''; //ngModel
 
   constructor(
     private helpers: HelpersService,
@@ -31,17 +31,17 @@ export class CartComponent implements OnInit {
     this.cartService.editQuantityOfCartProduct(cartItemIndex, 'decrease');
   }
 
-  toggleCommentBox(i: number) {
+  openCommentBox(i: number) {
     if (this.productHasComment(i)) {
       this.cartItemComment = this.cartService.cart.cartItems[i].comment;
     }
-    this.commentOpen = !this.commentOpen;
+    this.commentBoxOpen = `comment${i}`;
   }
 
   handleProductComment(cartItemIndex: number) {
     this.cartService.addCommentToCartItem(cartItemIndex, this.cartItemComment);
     this.cartItemComment = '';
-    this.commentOpen = !this.commentOpen;
+    this.commentBoxOpen = null;
   }
 
   productHasComment(i: number) {

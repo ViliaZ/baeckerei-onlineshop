@@ -16,7 +16,7 @@
                 <span>{{ ((cartItem.product.price * cartItem.quantity) | number : '1.2-2' )}} €</span>
             </div>
             <div class="product-bottom">
-                <span (click)="toggleCommentBox(i)" class="comment">Anmerkung hinzufügen</span>
+                <span (click)="openCommentBox(i)" class="comment">Anmerkung hinzufügen</span>
 
                 <!-- buttons PLUS + MINUS -->
                 <div class="buttons">
@@ -33,10 +33,10 @@
                 <span>{{ cartItem.comment || ''}}</span>
             </div>
 
-            <div class="commentContainer" *ngIf="commentOpen">
+            <div class="commentContainer" *ngIf="commentBoxOpen == 'comment'+i">
                 <textarea [(ngModel)]="cartItemComment" placeholder="Dein Kommentar" cols="50"></textarea>
                 <div class="buttons-comment">
-                    <button class="btn-comment" (click)="toggleCommentBox(i)">Abbrechen</button>
+                    <button class="btn-comment" (click)="openCommentBox(i)">Abbrechen</button>
                     <button class="btn-comment" (click)="handleProductComment(i)">Speichern</button>
                 </div>
             </div>
